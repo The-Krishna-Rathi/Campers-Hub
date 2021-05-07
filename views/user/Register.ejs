@@ -1,0 +1,29 @@
+<% layout('./layout/boilerplate') %>
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card shadow border-success" style="width: 28rem; height: 27rem">
+        <div class="container">
+            <div class="card-body">
+            <h1 class="text-center">Register</h1>
+            <form action="/user/register" method="POST" novalidate class="needs-validation">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" id="username" placeholder="username" class="form-control" name="username"
+                        autofocus required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" placeholder="email" class="form-control" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password:</label>
+                    <input type="password" id="password" placeholder="password" class="form-control" name="password"
+                        required>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="submit" class="btn btn-success mt-3">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

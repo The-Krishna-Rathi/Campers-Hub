@@ -1,0 +1,55 @@
+<% layout('./layout/boilerplate') %>
+
+    <div class="row mb-5">
+        <div class="col-lg-6 offset-lg-3">
+            <h1>
+                <%= Camp.title %>
+            </h1>
+            <hr>
+            <form action="/campground/<%= Camp._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Campground Title:</label>
+                    <input type="text" id="title" placeholder="ex- Hallowen hills" class="form-control" name="title"
+                        value="<%= Camp.title  %>">
+                </div>
+                <div class=" mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" id="location" placeholder="Camp Location" class="form-control" name="location"
+                        value="<%= Camp.location %>">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Add Images:</label>
+                    <input type="file" id="image" class="form-control" name="image" placeholder="Add more images..."
+                        multiple>
+                </div>
+                <div class="mb-3">
+                    <label for="price">Campground price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price">Rs.</span>
+                        <input type="text" class="form-control" placeholder="0" aria-label="Username"
+                            aria-describedby="price" name='price' value="<%= Camp.price %>">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        name="description"><%= Camp.description %></textarea>
+                </div>
+                <div class="my-3">
+                    <% Camp.images.forEach((img,i)=> { %>
+                        <img src="<%=img.thumbnail %> " class="img-thumbnail">
+                        <!-- why image.thumbnail refrence models/campground.js virtual prop on image schema -->
+                        <div class="form-check-inline">
+                            <input type="checkbox" name="deleteImages[]" id="image-<%= i %> "
+                                value="<%= img.filename %>">
+                        </div>
+                        <label for="image-<%= i %>">Delete?</label>
+                        <% }); %>
+                </div>
+
+                <button type="submit" class="btn btn-success">Update</button>
+                <a href="/campground/<%= Camp._id %>" class="btn btn-danger">cancel</a>
+            </form>
+
+        </div>
+    </div>

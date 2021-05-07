@@ -1,0 +1,39 @@
+<% layout('./layout/boilerplate') %>
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <h1>New Campground</h1>
+            <hr>
+            <form action="/campground" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Campground Title:</label>
+                    <input type="text" id="title" placeholder="ex- Hallowen hills" class="form-control" name="title"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" id="location" placeholder="Camp Location" class="form-control" name="location"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image:</label>
+                    <input type="file" id="image" class="form-control" name="image" multiple>
+                </div>
+                <div class="mb-3">
+                    <label for="price">Campground price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price">Rs.</span>
+                        <input type="text" class="form-control" placeholder="0" aria-label="Username"
+                            aria-describedby="price" name='price' required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Add Campground</button>
+                <a href="/campground" class="btn btn-danger">cancel</a>
+            </form>
+
+        </div>
+    </div>
